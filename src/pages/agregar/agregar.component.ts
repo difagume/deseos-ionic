@@ -5,6 +5,10 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'agregar.component.html'
 })
 export class AgregarComponent implements OnInit {
+
+    nombreLista: string;
+    nombreItem: string;
+
     constructor() { }
 
     ngOnInit() { }
