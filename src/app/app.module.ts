@@ -11,17 +11,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // Componentes
 import { PendientesComponent } from '../pages/pendientes/pendientes.component';
 import { TerminadosComponent } from '../pages/terminados/terminados.component';
+import { AgregarComponent } from '../pages/agregar/agregar.component';
+
 
 // Servicios
 import { ListaDeseosService } from './services/lista-deseos.service';
 
-
+// Pipes
+import { PlaceholderPipe } from './pipes/placeholder.pipe';
 
 @NgModule({
   declarations: [
     MyApp,
+    PlaceholderPipe,
     PendientesComponent,
     TerminadosComponent,
+    AgregarComponent,
     TabsPage
   ],
   imports: [
@@ -33,13 +38,14 @@ import { ListaDeseosService } from './services/lista-deseos.service';
     MyApp,
     PendientesComponent,
     TerminadosComponent,
+    AgregarComponent,
     TabsPage
   ],
   providers: [
     ListaDeseosService,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
