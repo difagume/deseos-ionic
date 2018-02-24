@@ -7,7 +7,7 @@ import { ListaDeseosService } from '../../app/services/lista-deseos.service';
   templateUrl: 'pendientes.component.html',
 })
 export class PendientesComponent implements OnInit {
-  constructor( private _listaDeseos:ListaDeseosService) {  }
+  constructor(public _listaDeseos: ListaDeseosService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

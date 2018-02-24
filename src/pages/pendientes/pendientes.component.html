@@ -1,15 +1,38 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Lista de Pendientes</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ul>
-    <li *ngFor="let lista of _listaDeseos.listas">
-      {{lista.nombre}}
-    </li>
-  </ul>
+  <ion-card *ngFor="let lista of _listaDeseos.listas">
+    <ion-item>
+      Botón
+    </ion-item>
+    <h2>{{lista.nombre}}</h2>
+    <ion-list>
+      <ion-item>
+        <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+        tetris
+      </ion-item>
+      <ion-item>
+        <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+        tetris
+      </ion-item>
+      <ion-item>
+        <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+        tetris
+      </ion-item>
+    </ion-list>
+
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary">
+      <ion-icon ios="ios-add" md="md-add"></ion-icon>
+    </button>
+
+  </ion-fab>
 
 </ion-content>
