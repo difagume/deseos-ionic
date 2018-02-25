@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Lista, ListaItem } from '../../app/clases/index';
+import { AlertController, NavController } from 'ionic-angular';
+import { ListaDeseosService } from '../../app/services/lista-deseos.service';
 
 @Component({
     selector: 'app-agregar',
@@ -7,12 +9,14 @@ import { Lista, ListaItem } from '../../app/clases/index';
 })
 export class AgregarComponent implements OnInit {
 
-    nombreLista: string;
+    nombreLista: string = "";
     nombreItem: string = "";
 
     items: ListaItem[] = [];
 
-    constructor() { }
+    constructor(private _listaDeseos: ListaDeseosService,
+        private alertCtrl: AlertController,
+        private navCtrl: NavController) { }
 
     ngOnInit() { }
 
@@ -32,4 +36,28 @@ export class AgregarComponent implements OnInit {
     borrarItem(index: number) {
         this.items.splice(index, 1);
     }
+
+    guardarLista() {
+        if (this.nombreLista.length == 0) {
+            this.showAlert();
+            return;
+        }
+
+        let lista = new Lista(this.nombreLista);
+        lista.items = this.items;
+        // Se envia la "lista" al arreglo de listas que se encuentra en el servicio
+        this._listaDeseos.listas.push(lista);
+        // Retornamos a la pantalla principal
+        this.navCtrl.pop();
+    }
+
+    showAlert() {
+        let alert = this.alertCtrl.create({
+            title: 'Aviso',
+            subTitle: 'El nombre de la lista es necesario!',
+            buttons: ['OK']
+        });
+        alert.present();
+    }
+
 }
