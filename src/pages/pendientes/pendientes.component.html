@@ -6,9 +6,9 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let lista of _listaDeseos.listas">
+  <ion-card *ngFor="let lista of _listaDeseos.listas; let i = index">
 
-    <ion-item color="dark">
+    <ion-item color="dark" (click)="verDetalle(lista, i);">
       <h2 style="color: white">{{lista.nombre}}</h2>
 
       <ion-note item-right>
@@ -18,7 +18,7 @@
 
     <ion-list>
 
-      <ion-item *ngFor="let item of lista.items | slice:0:2">
+      <ion-item (click)="verDetalle(lista, i);" *ngFor="let item of lista.items | slice:0:2">
         <ion-icon *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon>
         <ion-icon *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
         {{item.nombre}}
