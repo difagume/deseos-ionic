@@ -30,9 +30,6 @@ export class ListaDeseosService {
     }
 
     agregarLista(lista: Lista) {
-        console.log("LISTA");
-        console.log(lista);
-
         this.listas.push(lista);
         this.actualizarData();
     }
