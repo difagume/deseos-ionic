@@ -19,11 +19,13 @@ import { ListaDeseosService } from './services/lista-deseos.service';
 
 // Pipes
 import { PlaceholderPipe } from './pipes/placeholder.pipe';
+import { PendientesPipe } from './pipes/pendientes.pipe';
 
 @NgModule({
   declarations: [
     MyApp,
     PlaceholderPipe,
+    PendientesPipe,
     PendientesComponent,
     TerminadosComponent,
     AgregarComponent,
